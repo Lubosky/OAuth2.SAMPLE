@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= link_to Settings.application.name, root_path, class: "navbar-brand" %>
+
+  <div class="collapse navbar-collapse" id="navbarDefault">
+    <ul class='navbar-nav'>
+      <li class='nav-item'><%= link_to "Odhlásit se", logout_path %></li>
+    </ul>
+  </div>
+</nav>
