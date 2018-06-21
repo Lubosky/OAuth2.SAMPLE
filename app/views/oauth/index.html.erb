@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <h3>Toto je vzorová aplikace pro přihlášení pomocí OAuth 2.0 protokolu.</h3>
+    <hr />
+    <p>Pro přihlášení je nejprve potřeba vytvořit a nakonfigurovat aplikaci v administrátorské části.</p>
+    <ul>
+      <li>Po přihlášení se přepnete na záložku Administrace => OAuth aplikace a přidejte novou aplikaci.</li>
+      <li>Je potřeba vyplnit atributy <b>Jméno</b> a <b>Redirect URI</b>. Atribut <b>Scopes</b> není povinný.</li>
+      <li>Jako jméno můžete zadat cokoliv.</li>
+      <li>Nastavte adresu URL <b>Redirect URI</b> jako <pre>https://MOJE_DOMENA.cz/auth/eurosignal/callback</pre>. Adresu je potřebné zadat ve formátu s <pre>https://</pre></li>
+    </ul>
+    <span style="color: #656565; padding-bottom: 15px;">Příklad:</br><b>Jméno</b>: <pre>Aplikace</pre></br><b>Redirect URI</b>: <pre>https://oauth2-sample.herokuapp.com/auth/eurosignal/callback</pre></span>
+    <ul>
+      <li>Po vytvoření aplikace je vám vygenerováno <b>Uid</b> neboli (Client ID) a <b>Client secret</b>.</li>
+      <li>Tyto atributy <b>Uid</b>, <b>Client secret</b> spolu <b>Redirect URI</b> je pak spolu s dalšími parametry potřebné nastavit v aplikaci pro kterou jste vytvářeli přístup.</li>
+      <li>V našem případě nastavíme systémové proměnné u Heroku.</li>
+    </ul>
+    <span style="color: #656565; padding-bottom: 15px;">
+      Příklad:</br>
+      <b>APP_DOMAIN</b>: <pre>MOJE_DOMENA.cz</pre> anebo v našem případě <pre>oauth2-sample.herokuapp.com</pre>
+      </br>
+      <b>APP_OAUTH_CALLBACK</b>: <pre>/auth/eurosignal/callback</pre> tj. adresa callbacku.
+      </br>
+      <b>PROVIDER_APP_URL</b>: <pre>https://ruby2.eurosignal.cz</pre> tj. URL adresa OAuth serveru.
+      </br>
+      <b>PROVIDER_APP_ID</b>: <pre>s5g6eu2g019ncx68hc</pre>, tj. <b>Uid</b> kód který jsme získali při vytvoření aplikace.
+      </br>
+      <b>PROVIDER_SECRET</b>: <pre>05b0zv97drs7461ynw</pre>, tj. <b>Client secret</b> kód který jsme získali při vytvoření aplikace.
+    </span>
+    <ul>
+      <li>V tomto momente by měla být aplikace připravena avy byste měli být schopni se <%= link_to 'přihlásit pomocí OAuth', auth_path(ENV['PROVIDER_NAME']) %>.</li>
+    </ul>
+  </div>
+</div>

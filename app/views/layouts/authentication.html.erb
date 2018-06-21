@@ -19,11 +19,11 @@
   <body>
     <div id='root'></div>
 
-    <%= navbar if current_user %>
+    <%= navbar %>
 
     <div class="<%= layout_class %>">
       <%= flash_messages %>
-      <%= link_to 'Autorizovat', auth_path(ENV['PROVIDER_NAME']), class: 'btn btn-lg btn-info' %>
+      <%= yield %>
     </div>
   </body>
 
